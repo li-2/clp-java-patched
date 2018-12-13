@@ -1,6 +1,6 @@
 package com.quantego.clp;
 
-import org.bridj.BridJ;
+// import org.bridj.BridJ;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,8 +19,8 @@ class NativeLoader {
 
 	static void load() {
 		File tempDir = createTempDir(prefix);
-        BridJ.addLibraryPath(tempDir.getAbsolutePath());
-
+        // BridJ.addLibraryPath(tempDir.getAbsolutePath());
+        System.setProperty("java.library.path", System.getProperty("java.library.path")+";"+tempDir.getAbsolutePath());
 		String osArch = System.getProperty("os.arch");
         String osName = System.getProperty("os.name").toLowerCase();
         String path;
